@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:revitalize_mobile/app_controller.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   State<HomePage> createState() {
     //
@@ -16,15 +18,15 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Revitalize'),
-        actions: [
+        title: const Text('Revitalize'),
+        actions: const [
 
           CustomSwitcher() //componentização, criando componentes!
 
         ],
         backgroundColor: Colors.greenAccent,
       ),
-      body: Container(
+      body: SizedBox(
 
         width: double.infinity,
         height: double.infinity,
@@ -53,7 +55,7 @@ class HomePageState extends State<HomePage> {
 
 
           ),
-        CustomSwitcher(),
+        const CustomSwitcher(),
 
         ],
 
@@ -61,7 +63,7 @@ class HomePageState extends State<HomePage> {
       ),
     ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () {
           setState(() {
             counter = counter + 1;
@@ -72,6 +74,8 @@ class HomePageState extends State<HomePage> {
   }
 }
       class CustomSwitcher extends StatelessWidget {
+  const CustomSwitcher({super.key});
+
 
   @override
   Widget build(BuildContext context) {

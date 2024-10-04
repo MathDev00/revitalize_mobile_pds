@@ -15,7 +15,7 @@ import 'package:revitalize_mobile/app_widget.dart';
 
 
 main() {
-  runApp(AppWideget());
+  runApp(const AppWideget());
 }
 
 

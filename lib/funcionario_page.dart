@@ -1,89 +1,134 @@
 import 'package:flutter/material.dart';
 import 'package:revitalize_mobile/app_bar.dart';
+import 'package:revitalize_mobile/form_funcionario.dart';
 
-class FuncionarioPage extends StatefulWidget {
-  @override
-  _FuncionarioPageState createState() => _FuncionarioPageState();
-}
+import 'package:revitalize_mobile/widgets/custom_table.dart';
 
-class _FuncionarioPageState extends State<FuncionarioPage> {
-  final List<Map<String, dynamic>> funcionarios = [
-    {
-      'id': 1,
-      'nome': 'João Silva',
-      'cpf': '787.458.785-35',
-      'ocupacao': 'Desenvolvedor'
-    },
-    {
-      'id': 2,
-      'nome': 'Maria Oliveira',
-      'cpf': '787.458.785-35',
-      'ocupacao': 'Designer'
-    },
-    {
-      'id': 3,
-      'nome': 'Carlos Souza',
-      'cpf': '787.458.785-35',
-      'ocupacao': 'Gerente'
-    },
-  ];
+/// Flutter code sample for [Table].
 
-  void _cadastrarFuncionario() {
-  }
+void main() => runApp(const FuncionarioPage());
+
+class FuncionarioPage extends StatelessWidget {
+  const FuncionarioPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(title: "Revitalize"),
-      body: SingleChildScrollView(
-        child: Column(
+    return MaterialApp(
+      home: Scaffold(
+        appBar: CustomAppBar(title: "Funcionarios"),
+        body: const FuncionarioPageState(),
+      ),
+    );
+  }
+}
+
+class FuncionarioPageState extends StatelessWidget {
+  const FuncionarioPageState({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    double availableHeight = MediaQuery.of(context).size.height;
+    double availableWidth = MediaQuery.of(context).size.width;
+    return Column(
+      children: [
+         IconButton(
+              onPressed: () {
+                 Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => const FormFuncionarioPage()));
+              },
+              icon: const Icon(Icons.add),
+              tooltip: 'Adicionar', 
+            ),
+        SizedBox(height: 2),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 10.0),
-              padding: EdgeInsets.all(16.0),
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text('ID', style: TextStyle(fontWeight: FontWeight.bold)),
-                  Text('Nome', style: TextStyle(fontWeight: FontWeight.bold)),
-                  Text('CPF', style: TextStyle(fontWeight: FontWeight.bold)),
-                  Text('Ocupação', style: TextStyle(fontWeight: FontWeight.bold)),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: IconButton(
-                onPressed: _cadastrarFuncionario,
-                icon: Icon(Icons.add, size: 30), // Ícone de adicionar
-                color: Theme.of(context).primaryColor, // Cor do ícone
-              ),
-            ),
-            ...funcionarios.map((funcionario) {
-              return Container(
-                margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 10.0),
-                padding: EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(10),
+                width: availableWidth * 0.9,
+                height: availableHeight * 0.2,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(150, 173, 216, 230), // Cor azul clara
-                  borderRadius: BorderRadius.circular(12), // Bordas arredondadas
+                  color: const Color.fromARGB(150, 173, 216, 230),
+                  border: Border.all(
+                    width: 2,
+                    color: const Color.fromARGB(150, 173, 216, 230),
+                  ),
+                  borderRadius: BorderRadius.circular(20),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                child: Column(
                   children: [
-                    Text(funcionario['id'].toString(), style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text(funcionario['nome'], style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text(funcionario['cpf'], style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text(funcionario['ocupacao'], style: TextStyle(fontWeight: FontWeight.bold)),
+                    Row(
+                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          const Column(children: [
+                            Text(
+                              "Funcionario",
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.grey),
+                            ),
+                            Text("Dr. Marcos",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Row(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "Ocupação",
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.grey),
+                                      ),
+                                      Text("Psicologo",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold)),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            )
+                          ]),
+                          const Column(
+                            children: [
+                              Text(
+                                "Gênero",
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.grey),
+                              ),
+                              Text("Masculino",
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
+                            ],
+                          ),
+                          Padding(
+                            //mainAxisAlignment: MainAxisAlignment.
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                            child: Column(children: [
+                                  IconButton(
+                                    onPressed: () {
+                                                },
+                                    icon: const Icon(Icons.edit),
+                                    tooltip: 'Editar', 
+            ), 
+                                  IconButton(
+                                    onPressed: () {
+                                                },
+                                    icon: const Icon(Icons.delete),
+                                    tooltip: 'Editar',
+            ),                                             ]),
+                          )
+                        ]),
                   ],
-                ),
-              );
-            }).toList(),
+                ))
           ],
-        ),
-      ),
+        )
+      ],
     );
   }
 }

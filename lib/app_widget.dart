@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:revitalize_mobile/app_controller.dart';
-import 'package:revitalize_mobile/home_page.dart';
+//import 'package:revitalize_mobile/home_page.dart';
 import 'package:revitalize_mobile/login_page.dart';
 
 
 // StatelessWidget -> É estático!
 
 class AppWideget extends StatelessWidget {
+  const AppWideget({super.key});
+
   @override
-  Widget build(BuildContext context) {
-    return AnimatedBuilder(
+  Widget build(BuildContext context) => AnimatedBuilder(
 
       animation: AppController.instance,
       builder: (context, child) {
@@ -20,9 +21,8 @@ class AppWideget extends StatelessWidget {
             ? Brightness.dark
             :Brightness.light,
           ),
-          home: LoginPage(),
+          home: const LoginPage(),
         );
       },
     );
-  }
 }

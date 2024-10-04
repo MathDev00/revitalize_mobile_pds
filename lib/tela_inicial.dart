@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:revitalize_mobile/home_page.dart';
 import 'package:revitalize_mobile/login_page.dart';
 import 'package:revitalize_mobile/funcionario_page.dart';
-
-
-
+//import 'package:revitalize_mobile/paciente_page.dart';
+//import 'package:revitalize_mobile/prontuarios_page.dart';
 
 class MainApp extends StatelessWidget {
+  const MainApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
@@ -16,26 +18,29 @@ class MainApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
 
-void _onFuncionarioPressed() {
-      Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => FuncionarioPage()),
-      );
-   
+
+  void _onFuncionarioPressed () {
+
+  Navigator.of(context).push(
+    MaterialPageRoute(builder: (context) => const FuncionarioPage()));
+
   }
 
-
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Revitalize",
           style: TextStyle(
             color: Colors.white,
@@ -43,60 +48,66 @@ void _onFuncionarioPressed() {
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: Color.fromARGB(255, 28, 5, 82),
+        backgroundColor: const Color.fromARGB(255, 28, 5, 82),
         elevation: 0,
       ),
       body: ListView(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         children: [
-          Container(
-            height: 100,
-            width: 300,
-            decoration: BoxDecoration(
-              color: Color.fromARGB(150, 173, 216, 230),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            margin: EdgeInsets.only(bottom: 10), // Ajusta a margem inferior
-            child: Text(
-              "Prontuários",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          Container(
-            height: 100,
-            width: 300,
-            decoration: BoxDecoration(
-              color: Color.fromARGB(150, 173, 216, 230),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            margin: EdgeInsets.only(bottom: 10), // Ajusta a margem inferior
-            child: Text(
-              "Paciente",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
           GestureDetector(
-            onTap: _onFuncionarioPressed, // Chama a função ao pressionar
+            // onTap: _onProntuariosPressed, // Chama a função ao pressionar
             child: Container(
               height: 100,
               width: 300,
               decoration: BoxDecoration(
-                color: Color.fromARGB(150, 173, 216, 230),
+                color: const Color.fromARGB(150, 173, 216, 230),
                 borderRadius: BorderRadius.circular(20),
               ),
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              margin: EdgeInsets.only(bottom: 10), // Ajusta a margem inferior
-              child: Text(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              margin: const EdgeInsets.only(bottom: 10), // Ajusta a margem inferior
+              child: const Text(
+                "Prontuários",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          GestureDetector(
+            //onTap: _onPacientePressed, // Chama a função ao pressionar
+            child: Container(
+              height: 100,
+              width: 300,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(150, 173, 216, 230),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              margin: const EdgeInsets.only(bottom: 10),
+              child: const Text(
+                "Paciente",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          GestureDetector(
+            onTap: _onFuncionarioPressed,
+            child: Container(
+              height: 100,
+              width: 300,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(150, 173, 216, 230),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              margin: const EdgeInsets.only(bottom: 10), // Ajusta a margem inferior
+              child: const Text(
                 "Funcionário",
                 style: TextStyle(
                   color: Colors.black,
@@ -113,10 +124,10 @@ void _onFuncionarioPressed() {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             IconButton(
-              icon: Icon(Icons.logout),
+              icon: const Icon(Icons.logout),
               onPressed: () {
-                 Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => LoginPage()));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => const LoginPage()));
               },
             ),
           ],

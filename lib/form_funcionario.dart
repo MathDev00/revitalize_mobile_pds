@@ -1,48 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:revitalize_mobile/app_bar.dart';
 import 'package:revitalize_mobile/tela_inicial.dart';
+import 'package:revitalize_mobile/app_bar.dart';
+
 //import 'package:flutter/revitalize_mobile/tela_inicial.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class FormFuncionarioPage extends StatefulWidget {
+  const FormFuncionarioPage({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  __LoginPageState createState() => __LoginPageState();
+  __FormFuncionarioPageState createState() => __FormFuncionarioPageState();
 }
 
-class __LoginPageState extends State<LoginPage> {
+class __FormFuncionarioPageState extends State<FormFuncionarioPage> {
   String email = '';
   String password = '';
 
-
-
-
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const CustomAppBar(title: "Cadastro de Funcionário"),
       body: SingleChildScrollView(
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-
             child: Column(
-
-
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-
-                Image.asset('assets/images/logo.png'),
-
                 TextField(
                   onChanged: (text) {
                     email = text;
                   },
                   decoration: const InputDecoration(
-                      labelText: 'Email', border: OutlineInputBorder()),
+                      labelText: 'Nome', border: OutlineInputBorder()),
                 ),
                 const SizedBox(height: 10),
                 TextField(
@@ -51,21 +43,14 @@ class __LoginPageState extends State<LoginPage> {
                     password = text;
                   },
                   decoration: const InputDecoration(
-                    labelText: 'Password',
+                    labelText: 'CPF',
                     border: OutlineInputBorder(),
                   ),
                 ),
                 const SizedBox(height: 10),
                 ElevatedButton(
-                  onPressed: () {
-                    //if (email == '' && password == '') {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => const MainApp()));
-                    //} else {
-                      //print("Errado!");
-                    //}
-                  },
-                  child: const Text('Entrar'),
+                  onPressed: () {},
+                  child: const Text('Cadastrar'),
                 )
               ],
             ),
