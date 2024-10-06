@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:revitalize_mobile/pages/form_paciente.dart';
 import 'package:revitalize_mobile/widgets/app_bar.dart';
 import 'package:revitalize_mobile/pages/form_funcionario.dart';
 import 'package:revitalize_mobile/widgets/custom_table.dart';
@@ -40,7 +41,13 @@ class PacientePageState extends StatelessWidget {
       child: Column(
         children: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+
+               Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) => const FormPacientePage()),
+              );
+            },
             icon: const Icon(Icons.add),
             tooltip: 'Adicionar',
           ),

@@ -85,13 +85,13 @@ class CustomTable extends StatelessWidget {
                       SizedBox(height: 8), // Espaço entre os textos
 
                       Text(
-                        "Id",
+                        nomeCampo[3],
                         style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
                             color: Colors.grey),
                       ),
-                      Text("01", style: TextStyle(fontWeight: FontWeight.bold)),
+                      Text(dados[3], style: TextStyle(fontWeight: FontWeight.bold)),
                     ],
                   ),
                 ),

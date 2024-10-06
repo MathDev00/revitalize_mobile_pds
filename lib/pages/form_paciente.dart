@@ -3,15 +3,15 @@ import 'package:revitalize_mobile/widgets/app_bar.dart';
 
 //import 'package:flutter/revitalize_mobile/tela_inicial.dart';
 
-class FormFuncionarioPage extends StatefulWidget {
-  const FormFuncionarioPage({super.key});
+class FormPacientePage extends StatefulWidget {
+  const FormPacientePage({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  __FormFuncionarioPageState createState() => __FormFuncionarioPageState();
+  __FormPacientePageState createState() => __FormPacientePageState();
 }
 
-class __FormFuncionarioPageState extends State<FormFuncionarioPage> {
+class __FormPacientePageState extends State<FormPacientePage> {
   String email = '';
   String password = '';
 
@@ -49,17 +49,6 @@ class __FormFuncionarioPageState extends State<FormFuncionarioPage> {
                   },
                   decoration: const InputDecoration(
                     labelText: 'Ocupação',
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-
-                 TextField(
-                  obscureText: true,
-                  onChanged: (text) {
-                    password = text;
-                  },
-                  decoration: const InputDecoration(
-                    labelText: 'Senha',
                     border: OutlineInputBorder(),
                   ),
                 ),
