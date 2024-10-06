@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:revitalize_mobile/home_page.dart';
-import 'package:revitalize_mobile/login_page.dart';
-import 'package:revitalize_mobile/funcionario_page.dart';
-//import 'package:revitalize_mobile/paciente_page.dart';
+import 'package:revitalize_mobile/pages/login_page.dart';
+import 'package:revitalize_mobile/pages/funcionario_page.dart';
+import 'package:revitalize_mobile/pages/paciente_page.dart';
 //import 'package:revitalize_mobile/prontuarios_page.dart';
 
 class MainApp extends StatelessWidget {
@@ -32,6 +31,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Navigator.of(context).push(
     MaterialPageRoute(builder: (context) => const FuncionarioPage()));
+
+  }
+
+
+  void _onPacientePressed () {
+
+  Navigator.of(context).push(
+    MaterialPageRoute(builder: (context) => const PacientePage()));
 
   }
 
@@ -76,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           GestureDetector(
-            //onTap: _onPacientePressed, // Chama a função ao pressionar
+            onTap: _onPacientePressed, // Chama a função ao pressionar
             child: Container(
               height: 100,
               width: 300,

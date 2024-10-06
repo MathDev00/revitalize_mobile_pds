@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:revitalize_mobile/login_page.dart';
-import 'package:revitalize_mobile/tela_inicial.dart';
-
+import 'package:revitalize_mobile/pages/tela_inicial.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -25,8 +23,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: IconButton(
         icon: const Icon(Icons.arrow_back), // Ícone de voltar
         onPressed: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => const MyHomePage()));
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const MyHomePage()));
         },
       ),
       backgroundColor: const Color.fromARGB(255, 28, 5, 82),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:revitalize_mobile/app_bar.dart';
-import 'package:revitalize_mobile/tela_inicial.dart';
+import 'package:revitalize_mobile/pages/tela_inicial.dart';
 //import 'package:flutter/revitalize_mobile/tela_inicial.dart';
 
 class LoginPage extends StatefulWidget {

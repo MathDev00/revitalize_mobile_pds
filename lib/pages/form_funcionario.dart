@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:revitalize_mobile/tela_inicial.dart';
-import 'package:revitalize_mobile/app_bar.dart';
+import 'package:revitalize_mobile/widgets/app_bar.dart';
 
 //import 'package:flutter/revitalize_mobile/tela_inicial.dart';
 
@@ -19,7 +18,7 @@ class __FormFuncionarioPageState extends State<FormFuncionarioPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: "Cadastro de Funcionário"),
+      appBar: const CustomAppBar(title: "Cadastro"),
       body: SingleChildScrollView(
         child: SizedBox(
           width: MediaQuery.of(context).size.width,

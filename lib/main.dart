@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:revitalize_mobile/app_widget.dart';
+import 'package:revitalize_mobile/pages/login_page.dart';
 
 
 
@@ -15,8 +15,25 @@ import 'package:revitalize_mobile/app_widget.dart';
 
 
 main() {
+
+  
   runApp(const AppWideget());
 }
+
+// StatelessWidget -> É estático!
+
+class AppWideget extends StatelessWidget {
+  const AppWideget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+          home: const LoginPage(),
+          //routes:  ,
+        );
+  }
+}
+
 
 
 
