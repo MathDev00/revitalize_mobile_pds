@@ -55,7 +55,7 @@ class PacientePageState extends StatelessWidget {
           SizedBox(height: 8),
 
           CustomTable(
-            quantidadeCampo: 8,
+            quantidadeCampo: '8',
             nomeCampo: nomeCampo,
             dados: ['1', 'João','Masculino' ,'01-01-2024', 'joão@gmail.',' Rua 09 s/n', 
     'Ceres','76300'],
@@ -64,11 +64,14 @@ class PacientePageState extends StatelessWidget {
           SizedBox(height: 8),
 
           CustomTable(
-            quantidadeCampo: 8,
+            quantidadeCampo: '8',
             nomeCampo: nomeCampo,
             dados: ['2', 'Maria','Feminino' ,'01-01-2024', 'joão@gmail.',' Rua 09 s/n', 
     'Ceres','76300'],
           ),
+
+          SizedBox(height: 8),
+
         ],
       ),
     );

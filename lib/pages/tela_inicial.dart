@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:revitalize_mobile/pages/login_page.dart';
 import 'package:revitalize_mobile/pages/funcionario_page.dart';
 import 'package:revitalize_mobile/pages/paciente_page.dart';
-//import 'package:revitalize_mobile/prontuarios_page.dart';
+import 'package:revitalize_mobile/pages/prontuarios_page.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -42,6 +42,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   }
 
+  void _onProntuariosPressed () {
+
+  Navigator.of(context).push(
+    MaterialPageRoute(builder: (context) => const ProntuariosPage()));
+
+  }
+
   
   @override
   Widget build(BuildContext context) {
@@ -62,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: const EdgeInsets.all(20),
         children: [
           GestureDetector(
-            // onTap: _onProntuariosPressed, // Chama a função ao pressionar
+            onTap: _onProntuariosPressed, 
             child: Container(
               height: 100,
               width: 300,

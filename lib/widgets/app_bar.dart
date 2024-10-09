@@ -21,7 +21,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       leading: IconButton(
-        icon: const Icon(Icons.arrow_back), // Ícone de voltar
+        icon: const Icon(Icons.arrow_back), 
         onPressed: () {
           Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => const MyHomePage()));
@@ -30,7 +30,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: const Color.fromARGB(255, 28, 5, 82),
       elevation: 2,
       iconTheme:
-          const IconThemeData(color: Colors.white), // Define a cor da seta
+          const IconThemeData(color: Colors.white), 
     );
   }
 

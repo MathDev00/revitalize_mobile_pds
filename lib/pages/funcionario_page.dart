@@ -51,7 +51,7 @@ class FuncionarioPageState extends StatelessWidget {
           SizedBox(height: 2),
       
           CustomTable(
-              quantidadeCampo: 4,
+              quantidadeCampo: '4',
               nomeCampo: nomeCampo,
               dados: ['1', 'Marcos','Psicologo' ,'Masculino'],
             ),
