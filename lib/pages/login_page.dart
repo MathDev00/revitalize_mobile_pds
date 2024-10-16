@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:revitalize_mobile/pages/tela_inicial.dart';
 //import 'package:flutter/revitalize_mobile/tela_inicial.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends StatefulWidget {  
   const LoginPage({super.key});
 
   @override
@@ -14,10 +14,6 @@ class __LoginPageState extends State<LoginPage> {
   String email = '';
   String password = '';
 
-
-
-
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +25,6 @@ class __LoginPageState extends State<LoginPage> {
             padding: const EdgeInsets.all(8.0),
 
             child: Column(
-
 
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
