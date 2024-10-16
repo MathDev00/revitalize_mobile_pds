@@ -88,12 +88,12 @@ class CustomPront extends StatelessWidget {
           constraints: BoxConstraints(maxHeight: 40),
           child: Text(
             dado,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
+            maxLines: 15,
+            overflow: TextOverflow.visible,
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
-        SizedBox(height: 8), // Espaço entre os textos
+        SizedBox(height: 8), 
       ],
     );
   }
