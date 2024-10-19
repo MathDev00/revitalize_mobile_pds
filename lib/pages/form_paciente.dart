@@ -9,14 +9,27 @@ class FormPacientePage extends StatefulWidget {
 }
 
 class __FormPacientePageState extends State<FormPacientePage> {
-  String nome = '';
-  String ocupacao = 'Estudante'; // Default value
-  String genero = 'Masculino';  // Default value
+  
+String nome = '';
+  String ocupacao = ''; // Start with an empty string
+  String genero = ''; // Start with an empty string
   String cpf = '';
   String email = '';
   String endereco = '';
-  String cidade = 'São Paulo';  // Default value
+  String cidade = ''; // Start with an empty string
   String cep = '';
+  String senha = '';
+  String data_nascimento = '';
+
+
+  final List<String> generoItems = ['Masculino', 'Feminino', 'Outro'];
+  final List<String> cidadeItems = [
+    'São Paulo',
+    'Rio de Janeiro',
+    'Belo Horizonte'
+  ];
+
+  TextEditingController _dateController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,20 +53,40 @@ class __FormPacientePageState extends State<FormPacientePage> {
                   border: OutlineInputBorder(),
                 ),
               ),
+
+              SizedBox(height: 20),
+
+              TextField(
+                controller: _dateController,
+                decoration: InputDecoration(
+                  labelText: 'Date',
+                  filled: true,
+                  prefixIcon: Icon(Icons.calendar_today),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
+                ),
+                readOnly: true,
+                onTap: () {
+                  selectDate();
+                },
+              ),
+
               SizedBox(height: 10),
 
               // Dropdown for Ocupação
-            
+        
               SizedBox(height: 10),
+
+              // Password Field
 
               // Dropdown for Gênero
               DropdownButtonFormField<String>(
-                value: genero,
+                value: genero.isEmpty ? null : genero,
                 decoration: const InputDecoration(
                   labelText: 'Gênero',
                   border: OutlineInputBorder(),
                 ),
-                items: ['Masculino', 'Feminino', 'Outro'].map((String value) {
+                items: generoItems.map((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(value),
@@ -102,13 +135,12 @@ class __FormPacientePageState extends State<FormPacientePage> {
 
               // Dropdown for Cidade
               DropdownButtonFormField<String>(
-                value: cidade,
+                value: cidade.isEmpty ? null : cidade,
                 decoration: const InputDecoration(
                   labelText: 'Cidade',
                   border: OutlineInputBorder(),
                 ),
-                items: ['São Paulo', 'Rio de Janeiro', 'Belo Horizonte']
-                    .map((String value) {
+                items: cidadeItems.map((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(value),
@@ -147,4 +179,21 @@ class __FormPacientePageState extends State<FormPacientePage> {
       ),
     );
   }
-}
+
+  Future<void> selectDate() async {
+    DateTime? _picked = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2000),
+        lastDate: DateTime(2100));
+
+    if (_picked != null) {
+
+      setState(() {
+        _dateController.text = _picked.toString().split(" ")[0];
+      });
+    }
+  }
+
+  }
+

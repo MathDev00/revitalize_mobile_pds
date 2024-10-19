@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:revitalize_mobile/pages/login_page.dart';
 
 // Widget -> componentres (classes) (tela) -> recebe filhos
@@ -11,7 +12,12 @@ import 'package:revitalize_mobile/pages/login_page.dart';
 // Multi render (design sobre outros renders) e single render ->
 // ChangeNotifier - > apenas regra de negócio!!
 
-main() {
+void main() async {
+
+  final keyApplicationId = 'YOUR_APPLICATION_ID_HERE';
+  final keyClientKey = 'YOUR_CLIENT_KEY_HERE';
+  final keyParseServerUrl = 'https://parseapi.back4app.com';
+
   runApp(const AppWideget());
 }
 

@@ -11,17 +11,25 @@ class FormFuncionarioPage extends StatefulWidget {
 class __FormFuncionarioPageState extends State<FormFuncionarioPage> {
   String nome = '';
   String ocupacao = ''; // Start with an empty string
-  String genero = '';   // Start with an empty string
+  String genero = ''; // Start with an empty string
   String cpf = '';
   String email = '';
   String endereco = '';
-  String cidade = '';   // Start with an empty string
+  String cidade = ''; // Start with an empty string
   String cep = '';
   String senha = '';
+  String data_nascimento = '';
+
 
   final List<String> ocupacaoItems = ['Médico', 'Psicologo', 'Psiquiatra'];
   final List<String> generoItems = ['Masculino', 'Feminino', 'Outro'];
-  final List<String> cidadeItems = ['São Paulo', 'Rio de Janeiro', 'Belo Horizonte'];
+  final List<String> cidadeItems = [
+    'São Paulo',
+    'Rio de Janeiro',
+    'Belo Horizonte'
+  ];
+
+  TextEditingController _dateController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +53,24 @@ class __FormFuncionarioPageState extends State<FormFuncionarioPage> {
                   border: OutlineInputBorder(),
                 ),
               ),
+
+              SizedBox(height: 20),
+
+              TextField(
+                controller: _dateController,
+                decoration: InputDecoration(
+                  labelText: 'Date',
+                  filled: true,
+                  prefixIcon: Icon(Icons.calendar_today),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
+                ),
+                readOnly: true,
+                onTap: () {
+                  selectDate();
+                },
+              ),
+
               SizedBox(height: 10),
 
               // Dropdown for Ocupação
@@ -180,5 +206,20 @@ class __FormFuncionarioPageState extends State<FormFuncionarioPage> {
         ),
       ),
     );
+  }
+
+  Future<void> selectDate() async {
+    DateTime? _picked = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2000),
+        lastDate: DateTime(2100));
+
+    if (_picked != null) {
+
+      setState(() {
+        _dateController.text = _picked.toString().split(" ")[0];
+      });
+    }
   }
 }

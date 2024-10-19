@@ -34,7 +34,8 @@ class FuncionarioPageState extends StatelessWidget {
             return Wrap(
               spacing: 16,
               runSpacing: 16,
-              alignment: WrapAlignment.start, // Align items to the start
+              alignment: WrapAlignment.start, 
+// Align items to the start
               children: [
                 Center(
                   child: IconButton(
@@ -63,15 +64,17 @@ class FuncionarioPageState extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start, // Align items to the start
               children: [
-                IconButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                          builder: (context) => const FormFuncionarioPage()),
-                    );
-                  },
-                  icon: const Icon(Icons.add),
-                  tooltip: 'Adicionar',
+                Center(
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const FormFuncionarioPage()),
+                      );
+                    },
+                    icon: const Icon(Icons.add),
+                    tooltip: 'Adicionar',
+                  ),
                 ),
                 SizedBox(height: 8),
                 CustomTable(
@@ -138,8 +141,6 @@ class CustomTextWidget extends StatelessWidget {
                           color: Colors.black, // Text color for dados
                         ),
                       ),
-
-                      
                     ],
                   ),
                   
