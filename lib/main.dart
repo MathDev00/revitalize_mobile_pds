@@ -14,9 +14,9 @@ import 'package:revitalize_mobile/pages/login_page.dart';
 
 void main() async {
 
-  final keyApplicationId = 'YOUR_APPLICATION_ID_HERE';
-  final keyClientKey = 'YOUR_CLIENT_KEY_HERE';
-  final keyParseServerUrl = 'https://parseapi.back4app.com';
+  //final keyApplicationId = 'YOUR_APPLICATION_ID_HERE';
+ // final keyClientKey = 'YOUR_CLIENT_KEY_HERE';
+  //final keyParseServerUrl = 'https://parseapi.back4app.com';
 
   runApp(const AppWideget());
 }
